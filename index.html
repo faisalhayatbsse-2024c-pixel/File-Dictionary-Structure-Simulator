@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>File Manager</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>File Manager</h1>
+      <div id="breadcrumb">/</div>
+    </header>
+
+    <section class="controls">
+      <form id="createFolderForm">
+        <input type="text" name="folder" placeholder="New folder name" required>
+        <button type="submit">Create Folder</button>
+      </form>
+
+      <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <button type="submit">Upload</button>
+      </form>
+    </section>
+
+    <main id="fileArea">
+      <div id="message" class="message"></div>
+      <div id="list" class="list"></div>
+    </main>
+
+    <footer>
+      <small>Uploads directory: <code>uploads/</code></small>
+    </footer>
+  </div>
+
+  <!-- Image preview modal -->
+  <div id="modal" class="modal hidden">
+    <div class="modal-content">
+      <button id="closeModal" class="close">✕</button>
+      <img id="modalImage" src="" alt="Preview">
+      <div id="modalInfo"></div>
+    </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
